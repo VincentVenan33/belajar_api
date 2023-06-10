@@ -30,7 +30,7 @@ class EmployesController extends Controller
      */
     public function store(StoreEmployesRequest $request, EmployesService $employesService)
     {
-        $employes = $employesService->storeEmploye(($request->validate()));
+        $employes = $employesService->storeEmploye($request->validate());
 
         return response()->json($employes, 201);
     }
