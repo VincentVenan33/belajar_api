@@ -6,7 +6,6 @@ use App\Http\Requests\StoreEmployesRequest;
 use App\Models\Employes;
 use Illuminate\Http\Request;
 use App\Http\Services\EmployesService;
-use Illuminate\Support\Facades\Gate;
 
 class EmployesController extends Controller
 {
@@ -30,7 +29,7 @@ class EmployesController extends Controller
      */
     public function store(StoreEmployesRequest $request, EmployesService $employesService)
     {
-        $employes = $employesService->storeEmploye($request->validate());
+        $employes = $employesService->storeEmploye($request->all());
 
         return response()->json($employes, 201);
     }
